@@ -2,7 +2,7 @@
   "name": "panels-ui",
   "version": "0.1.0",
   "description": "Panels UI components",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production browserify index.js --standalone PanelsUi --no-bundle-external -o ./dist/panels-ui.js && uglifyjs ./dist/panels-ui.js -cm > ./dist/panels-ui.min.js",
     "livereload": "livereloadify ./playground",
