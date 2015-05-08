@@ -16,9 +16,9 @@ export default class ActionBlock extends React.Component {
   }
 
   render() {
-    let style = {...baseStyle.base, ...this.props.style}
+    let style = {...baseStyle.base, ...this.props.style.base}
     if (this.state.active || this.state.hover) {
-      style = {...style, ...baseStyle.active}
+      style = {...style, ...baseStyle.active, ...this.props.style.active}
     }
 
     return (
@@ -37,4 +37,11 @@ ActionBlock.propTypes = {
   href: React.PropTypes.string.isRequired,
   title: React.PropTypes.string,
   style:  React.PropTypes.object
+}
+
+ActionBlock.defaultProps = {
+  style: {
+    base: {},
+    active: {}
+  }
 }

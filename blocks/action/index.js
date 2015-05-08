@@ -52,9 +52,9 @@ var ActionBlock = (function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      var style = _extends({}, baseStyle.base, this.props.style);
+      var style = _extends({}, baseStyle.base, this.props.style.base);
       if (this.state.active || this.state.hover) {
-        style = _extends({}, style, baseStyle.active);
+        style = _extends({}, style, baseStyle.active, this.props.style.active);
       }
 
       return _react2['default'].createElement(
@@ -81,5 +81,12 @@ ActionBlock.propTypes = {
   href: _react2['default'].PropTypes.string.isRequired,
   title: _react2['default'].PropTypes.string,
   style: _react2['default'].PropTypes.object
+};
+
+ActionBlock.defaultProps = {
+  style: {
+    base: {},
+    active: {}
+  }
 };
 module.exports = exports['default'];
