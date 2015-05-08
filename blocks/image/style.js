@@ -1,5 +1,11 @@
-let style = {
-  maxWidth: '100%'
-}
+'use strict';
 
-export default style
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var style = {
+  maxWidth: '100%'
+};
+
+exports['default'] = style;
+module.exports = exports['default'];

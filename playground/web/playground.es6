@@ -1,18 +1,20 @@
-import * as PanelsUi from '../'
-window.PanelsUi = PanelsUi
+import * as PanelsUi from '../..';
+import React from 'react';
 
-import React from 'react'
+window.Playground = {
+  PanelsUi,
+  React
+};
 
-let {blocks, Panel, Panels} = PanelsUi
+let {blocks, Panel, Panels} = PanelsUi;
+let ActionBlock = blocks.ActionBlock;
+let ActionWithIconBlock = blocks.ActionWithIconBlock;
+let ImageBlock = blocks.ImageBlock;
+let SubtitleBlock = blocks.SubtitleBlock;
+let TextBlock = blocks.TextBlock;
+let TitleBlock = blocks.TitleBlock;
 
-let ActionBlock = blocks.ActionBlock
-let ActionWithIconBlock = blocks.ActionWithIconBlock
-let ImageBlock = blocks.ImageBlock
-let SubtitleBlock = blocks.SubtitleBlock
-let TextBlock = blocks.TextBlock
-let TitleBlock = blocks.TitleBlock
-
-const SHEEP = 'http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2014/4/11/1397210130748/Spring-Lamb.-Image-shot-2-011.jpg'
+const SHEEP = 'http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2014/4/11/1397210130748/Spring-Lamb.-Image-shot-2-011.jpg';
 
 let panel1 = (
   <Panel uri='/'>
@@ -27,19 +29,19 @@ let panel1 = (
     <ImageBlock src={SHEEP} style={{marginTop: 25}} />
     <TextBlock style={{marginTop: 25}}> Sheep not included. Unfortunately. :)</TextBlock>
   </Panel>
-)
+);
 
 let panels = (
   <Panels>
     {panel1}
   </Panels>
-)
+);
 
 React.render(
   panels,
   document.getElementById('playground-container')
-)
+);
 
-console.log('Welcome to panels-ui playground.')
-console.log('https://ui.usepanels.com')
-console.log('PanelsUi module', PanelsUi)
+console.log('Welcome to panels-ui playground.');
+console.log('https://ui.usepanels.com');
+console.log('Playground module', Playground);
