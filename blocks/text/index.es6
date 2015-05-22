@@ -1,9 +1,9 @@
-import baseStyle from './style'
-import React from 'react'
+import baseStyle from './style';
+import React from 'react';
 
 export default class TextBlock extends React.Component {
   render() {
-    return <p style={{...baseStyle, ...this.props.style}}>{this.props.children || this.props.text}</p>
+    return <p style={{...baseStyle, ...this.props.style}}>{this.props.children || this.props.text}</p>;
   }
 }
 

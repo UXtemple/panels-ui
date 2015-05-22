@@ -1,8 +1,8 @@
-import ActionBlock from '../action'
-import * as baseStyle from './style'
-import ImageBlock from '../image'
-import TextBlock from '../text'
-import React from 'react'
+import ActionBlock from '../action';
+import * as baseStyle from './style';
+import ImageBlock from '../image';
+import TextBlock from '../text';
+import React from 'react';
 
 export default class ActionWithIconBlock extends React.Component {
   render() {
@@ -11,7 +11,7 @@ export default class ActionWithIconBlock extends React.Component {
         <ImageBlock src={this.props.src} style={{...baseStyle.image}} />
         <TextBlock style={{...baseStyle.text}} text={this.props.title} />
       </ActionBlock>
-    )
+    );
   }
 }
 

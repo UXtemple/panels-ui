@@ -5,4 +5,4 @@ let style = {
   width: 360
 }
 
-export default style
+export default style;

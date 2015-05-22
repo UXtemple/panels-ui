@@ -3,6 +3,6 @@ import React from 'react'
 
 export default class Panel extends React.Component {
   render() {
-    return <div style={{...baseStyle, ...this.props.style}}>{this.props.children}</div>
+    return <div style={{...baseStyle, ...this.props.style}}>{this.props.children}</div>;
   }
 }

@@ -1,7 +1,7 @@
 require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports={
   "name": "panels-ui",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Panels UI components",
   "main": "index.js",
   "scripts": {
@@ -64,18 +64,18 @@ module.exports={
     ]
   },
   "devDependencies": {
-    "babel": "^5.2.17",
-    "babelify": "^6.0.2",
-    "browserify": "^10.1.3",
+    "babel": "^5.4.7",
+    "babelify": "^6.1.1",
+    "browserify": "^10.2.1",
     "envify": "^3.4.0",
     "livereloadify": "^2.0.0",
     "node-static": "^0.7.6",
-    "uglify-js": "^2.4.21",
+    "uglify-js": "^2.4.23",
     "watchify": "^3.2.1"
   },
   "dependencies": {
-    "immutable": "^3.7.2",
-    "react": "^0.13.2"
+    "immutable": "^3.7.3",
+    "react": "^0.13.3"
   }
 }
 

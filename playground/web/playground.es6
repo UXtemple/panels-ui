@@ -1,4 +1,4 @@
-import * as PanelsUi from '../..';
+import * as PanelsUi from '../../index';
 import React from 'react';
 
 window.Playground = {

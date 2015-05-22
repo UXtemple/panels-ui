@@ -1,9 +1,9 @@
-import baseStyle from './style'
-import React from 'react'
+import baseStyle from './style';
+import React from 'react';
 
 export default class ImageTitle extends React.Component {
   render() {
-    return <img src={this.props.src} style={{...baseStyle, ...this.props.style}} />
+    return <img src={this.props.src} style={{...baseStyle, ...this.props.style}} />;
   }
 }
 

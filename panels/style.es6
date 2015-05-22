@@ -3,4 +3,4 @@ let style = {
   height: '100vh'
 }
 
-export default style
+export default style;

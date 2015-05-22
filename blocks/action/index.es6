@@ -1,24 +1,24 @@
-import * as baseStyle from './style'
-import React from 'react'
+import * as baseStyle from './style';
+import React from 'react';
 
 export default class ActionBlock extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       active: false,
       hover: false
-    }
+    };
   }
 
   onClick(event) {
-    event.preventDefault()
-    this.setState({active: !this.state.active})
+    event.preventDefault();
+    this.setState({active: !this.state.active});
   }
 
   render() {
-    let style = {...baseStyle.base, ...this.props.style.base}
+    let style = {...baseStyle.base, ...this.props.style.base};
     if (this.state.active || this.state.hover) {
-      style = {...style, ...baseStyle.active, ...this.props.style.active}
+      style = {...style, ...baseStyle.active, ...this.props.style.active};
     }
 
     return (
@@ -29,7 +29,7 @@ export default class ActionBlock extends React.Component {
 
         {this.props.children || this.props.title}
       </a>
-    )
+    );
   }
 }
 

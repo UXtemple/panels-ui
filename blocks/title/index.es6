@@ -1,9 +1,9 @@
-import baseStyle from './style'
-import React from 'react'
+import baseStyle from './style';
+import React from 'react';
 
 export default class TitleBlock extends React.Component {
   render() {
-    return <h1 style={{...baseStyle, ...this.props.style}}>{this.props.children || this.props.title}</h1>
+    return <h1 style={{...baseStyle, ...this.props.style}}>{this.props.children || this.props.title}</h1>;
   }
 }
 
