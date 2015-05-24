@@ -5,19 +5,20 @@ export default class ActionBlock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: false,
       hover: false
     };
   }
 
   onClick(event) {
-    event.preventDefault();
-    this.setState({active: !this.state.active});
+    if (this.props.panels && this.props.panels.navigate) {
+      event.preventDefault();
+      this.props.panels.navigate(this.props.href);
+    }
   }
 
   render() {
     let style = {...baseStyle.base, ...this.props.style.base};
-    if (this.state.active || this.state.hover) {
+    if (this.props.active || this.state.hover) {
       style = {...style, ...baseStyle.active, ...this.props.style.active};
     }
 
@@ -34,12 +35,15 @@ export default class ActionBlock extends React.Component {
 }
 
 ActionBlock.propTypes = {
+  active: React.PropTypes.bool,
   href: React.PropTypes.string.isRequired,
-  title: React.PropTypes.string,
-  style:  React.PropTypes.object
+  panels: React.PropTypes.object,
+  style:  React.PropTypes.object,
+  title: React.PropTypes.string
 }
 
 ActionBlock.defaultProps = {
+  active: false,
   style: {
     base: {},
     active: {}

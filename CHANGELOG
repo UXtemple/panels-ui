@@ -5,7 +5,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
-## 0.1.0 - 2015-05-08
+## [0.1.4] - 2015-05-24
+### Changed
+
+- Allow actions to hijack `onClick`.
+
+## [0.1.0] - 2015-05-08
 
 ### Added
 
