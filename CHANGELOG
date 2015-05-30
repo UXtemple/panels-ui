@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.1.6] - 2015-05-30
+### Added
+
+- Vendor prefixes for CSS.
+
 ## [0.1.5] - 2015-05-30
 ### Changed
 
