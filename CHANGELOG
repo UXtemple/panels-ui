@@ -5,6 +5,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.1.5] - 2015-05-30
+### Changed
+
+- Allow actions to tell if they are active by comparing themselves to the `nextUri` on a panels
+  router keys' structure.
+
 ## [0.1.4] - 2015-05-24
 ### Changed
 

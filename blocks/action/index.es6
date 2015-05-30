@@ -16,9 +16,17 @@ export default class ActionBlock extends React.Component {
     }
   }
 
+  isActive() {
+    return (
+      this.props.active ||
+      this.state.hover ||
+      (this.props.panels && this.props.panels.nextUri() === this.props.href)
+    );
+  }
+
   render() {
     let style = {...baseStyle.base, ...this.props.style.base};
-    if (this.props.active || this.state.hover) {
+    if (this.isActive()) {
       style = {...style, ...baseStyle.active, ...this.props.style.active};
     }
 
