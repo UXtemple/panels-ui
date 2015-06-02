@@ -1,17 +1,6 @@
-let active = {
-  color: 'hsl(0, 50%, 50%)'
-}
-
-export { active }
-
-let base = {
-  color: 'hsl(0,0%,0%)',
+export default {
   flexDirection: 'row',
-  '-msFlexDirection': 'row',
-  '-webkitFlexDirection': 'row',
-  textDecoration: 'none',
-  padding: '15px 0 15px 50px',
-  width: '100%'
+  MsFlexDirection: 'row',
+  WebkitFlexDirection: 'row',
+  textDecoration: 'none'
 }
-
-export { base }

@@ -1,4 +1,4 @@
-import * as baseStyle from './style';
+import baseStyle from './style';
 import React from 'react';
 
 export default class ActionBlock extends React.Component {
@@ -10,24 +10,23 @@ export default class ActionBlock extends React.Component {
   }
 
   onClick(event) {
-    if (this.props.panels && this.props.panels.navigate) {
+    if (this.props.flux && this.props.flux.navigate) {
       event.preventDefault();
-      this.props.panels.navigate(this.props.href);
+      this.props.flux.navigate(this.props.href);
     }
   }
 
-  isActive() {
-    return (
-      this.props.active ||
-      this.state.hover ||
-      (this.props.panels && this.props.panels.nextUri() === this.props.href)
-    );
-  }
-
   render() {
-    let style = {...baseStyle.base, ...this.props.style.base};
-    if (this.isActive()) {
-      style = {...style, ...baseStyle.active, ...this.props.style.active};
+    const active = this.props.active || this.state.hover ||
+      (this.props.flux && this.props.flux.nextUri() === this.props.href);
+    let style = {...baseStyle, ...this.props.style.base};
+    if (active) {
+      style = {...style, ...this.props.style.active};
+    }
+
+    let children;
+    if (this.props.children) {
+      children = React.Children.map(this.props.children, child => React.cloneElement(child, {active}));
     }
 
     return (
@@ -36,24 +35,26 @@ export default class ActionBlock extends React.Component {
         onMouseEnter={() => this.setState({hover: true})}
         onMouseLeave={() => this.setState({hover: false})}>
 
-        {this.props.children || this.props.title}
+        {children || this.props.title}
       </a>
     );
   }
-}
 
-ActionBlock.propTypes = {
-  active: React.PropTypes.bool,
-  href: React.PropTypes.string.isRequired,
-  panels: React.PropTypes.object,
-  style:  React.PropTypes.object,
-  title: React.PropTypes.string
-}
+  static propTypes = {
+    active: React.PropTypes.bool,
+    href: React.PropTypes.string.isRequired,
+    flux: React.PropTypes.object,
+    style:  React.PropTypes.object,
+    title: React.PropTypes.string
+  }
 
-ActionBlock.defaultProps = {
-  active: false,
-  style: {
-    base: {},
-    active: {}
+  static defaultProps = {
+    active: false,
+    style: {
+      base: {},
+      active: {}
+    }
   }
 }
+
+
