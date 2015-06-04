@@ -6,13 +6,8 @@ window.Playground = {
   React
 };
 
-let {blocks, Panel, Panels} = PanelsUi;
-let ActionBlock = blocks.ActionBlock;
-let ActionWithIconBlock = blocks.ActionWithIconBlock;
-let ImageBlock = blocks.ImageBlock;
-let SubtitleBlock = blocks.SubtitleBlock;
-let TextBlock = blocks.TextBlock;
-let TitleBlock = blocks.TitleBlock;
+const { blocks, Panel, Panels } = PanelsUi;
+const { ActionBlock, ImageBlock, SubtitleBlock, TextBlock, TitleBlock } = blocks;
 
 const SHEEP = 'http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2014/4/11/1397210130748/Spring-Lamb.-Image-shot-2-011.jpg';
 
@@ -33,7 +28,6 @@ let panel1 = (
     <SubtitleBlock subtitle='With some links...' style={{marginTop: 25}} />
     <ActionBlock href='http://UXtemple.com' title='UXtemple' style={actionStyle} />
     <ActionBlock href='http://usepanels.com' title='use panels' style={actionStyle} />
-    <ActionWithIconBlock href='/some-panel' title='This is a sheep' src={SHEEP} style={{marginTop: 25}}  />
 
     <SubtitleBlock subtitle='Or some text and images...' style={{marginTop: 50}} />
     <TextBlock style={{marginTop: 25}}>Use panels now :).</TextBlock>

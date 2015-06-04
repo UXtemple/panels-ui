@@ -1,7 +1,8 @@
 let style = {
   flexDirection: 'row',
-  '-msFlexDirection': 'row',
-  '-webkitFlexDirection': 'row',
+  MsFlexDirection: 'row',
+  MozFlexDirection: 'row',
+  WebkitFlexDirection: 'row',
   height: '100vh'
 }
 

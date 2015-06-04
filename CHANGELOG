@@ -5,6 +5,17 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.2.1] - 2015-06-02
+### Changed
+
+- Removed ActionWithIcon as we weren't using it.
+- Fixed vendor prefixed styles.
+
+## [0.2.0] - 2015-06-02
+### Added
+
+- ActionIcon to create an action with an arrow.
+
 ## [0.1.6] - 2015-05-30
 ### Added
 
