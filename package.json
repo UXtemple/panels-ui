@@ -1,6 +1,6 @@
 {
   "name": "panels-ui",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Panels UI components",
   "main": "index.js",
   "scripts": {
@@ -29,48 +29,18 @@
     "url": "https://github.com/UXtemple/panels-ui/issues"
   },
   "homepage": "https://github.com/UXtemple/panels-ui",
-  "eslintConfig": {
-    "ecmaFeatures": {
-      "arrowFunctions": true,
-      "blockBindings": true,
-      "defaultParams": true,
-      "forOf": true,
-      "jsx": true,
-      "templateStrings": true
-    },
-    "env": {
-      "browser": true,
-      "node": true
-    },
-    "rules": {
-      "eqeqeq": 2,
-      "curly": 2,
-      "new-cap": false,
-      "quotes": [
-        2,
-        "single"
-      ],
-      "strict": 0
-    }
-  },
-  "browserify": {
-    "extensions": [
-      ".es6"
-    ],
-    "transform": [
-      "babelify",
-      "envify"
-    ]
-  },
   "devDependencies": {
-    "babel": "^5.4.7",
-    "babelify": "^6.1.1",
-    "browserify": "^10.2.1",
+    "babel": "^5.5.4",
+    "babel-eslint": "^3.1.14",
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
     "envify": "^3.4.0",
+    "eslint": "^0.22.1",
+    "eslint-plugin-react": "^2.5.0",
     "livereloadify": "^2.0.0",
     "node-static": "^0.7.6",
     "uglify-js": "^2.4.23",
-    "watchify": "^3.2.1"
+    "watchify": "^3.2.2"
   },
   "dependencies": {
     "immutable": "^3.7.3",

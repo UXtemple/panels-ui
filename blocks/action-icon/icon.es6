@@ -9,7 +9,7 @@ export default class Icon extends React.Component {
 
   static propTypes = {
     active: React.PropTypes.bool,
-    icon: React.PropTypes.element.isRequired,
+    icon: React.PropTypes.any.isRequired,
     style: React.PropTypes.shape({
       active: React.PropTypes.object,
       base: React.PropTypes.object

@@ -1,8 +1,8 @@
 import ActionBlock from '../action';
 import Icon from './icon';
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
-export default class ActionWithIconBlock extends React.Component {
+export default class ActionWithIconBlock extends Component {
   render() {
     const { icon, style, ...props } = this.props;
 
@@ -15,28 +15,31 @@ export default class ActionWithIconBlock extends React.Component {
   }
 
   static propTypes = {
-    active: React.PropTypes.bool,
-    icon: React.PropTypes.element,
-    href: React.PropTypes.string.isRequired,
-    flux: React.PropTypes.object,
-    style: React.PropTypes.shape({
-      action: React.PropTypes.shape({
-        active: React.PropTypes.object,
-        base: React.PropTypes.object
+    active: PropTypes.bool,
+    icon: PropTypes.element,
+    href: PropTypes.string.isRequired,
+    flux: PropTypes.object,
+    style: PropTypes.shape({
+      action: PropTypes.shape({
+        active: PropTypes.object,
+        base: PropTypes.object
       }),
-      icon: React.PropTypes.shape({
-        active: React.PropTypes.object,
-        base: React.PropTypes.object
+      icon: PropTypes.shape({
+        active: PropTypes.object,
+        base: PropTypes.object
       })
     }),
-    title: React.PropTypes.string
+    title: PropTypes.string
   }
 
   static defaultProps = {
     active: false,
     style: {
-      base: {},
-      active: {}
+      action: {
+        base: {},
+        active: {}
+      },
+      icon: {}
     }
   }
 }

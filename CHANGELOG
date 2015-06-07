@@ -5,6 +5,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.2.2] - 2015-06-07
+### Added
+
+- `.eslintrc` with rules for babel + React through `babel-eslint`, `eslint-plugin-react`.
+
+### Changed
+
+- `flux` for `panels` props in actions. TODO revisit.
+
 ## [0.2.1] - 2015-06-02
 ### Changed
 

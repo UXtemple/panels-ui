@@ -10,15 +10,15 @@ export default class ActionBlock extends React.Component {
   }
 
   onClick(event) {
-    if (this.props.flux && this.props.flux.navigate) {
+    if (this.props.panels && this.props.panels.navigate) {
       event.preventDefault();
-      this.props.flux.navigate(this.props.href);
+      this.props.panels.navigate(this.props.href);
     }
   }
 
   render() {
     const active = this.props.active || this.state.hover ||
-      (this.props.flux && this.props.flux.nextUri() === this.props.href);
+      (this.props.panels && this.props.panels.nextUri() === this.props.href);
     let style = {...baseStyle, ...this.props.style.base};
     if (active) {
       style = {...style, ...this.props.style.active};
@@ -43,7 +43,7 @@ export default class ActionBlock extends React.Component {
   static propTypes = {
     active: React.PropTypes.bool,
     href: React.PropTypes.string.isRequired,
-    flux: React.PropTypes.object,
+    panels: React.PropTypes.object,
     style:  React.PropTypes.object,
     title: React.PropTypes.string
   }
@@ -56,5 +56,3 @@ export default class ActionBlock extends React.Component {
     }
   }
 }
-
-
