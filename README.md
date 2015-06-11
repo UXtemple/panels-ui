@@ -1,15 +1,9 @@
-# panels ui
+# panels-ui
 
-Panels UI components.
+Main panels UI components.
 
 - panels
 - panel
-- blocks:
-  - action
-  - action with icon
-  - title
-  - text
-  - subtitle
 
 ## Install deps
 

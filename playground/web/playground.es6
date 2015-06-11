@@ -1,51 +1,23 @@
-import * as PanelsUi from '../../index';
+import { Panel, Panels } from '../../index';
 import React from 'react';
 
-window.Playground = {
-  PanelsUi,
-  React
-};
-
-const { blocks, Panel, Panels } = PanelsUi;
-const { ActionBlock, ImageBlock, SubtitleBlock, TextBlock, TitleBlock } = blocks;
-
-const SHEEP = 'http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2014/4/11/1397210130748/Spring-Lamb.-Image-shot-2-011.jpg';
-
-const actionStyle = {
-  base: {
-    marginTop: 25,
-    backgroundColor: '#F2F2F2',
-    color: '#353535'
-  },
-  active: {
-    color: 'blue'
-  }
-}
-
-let panel1 = (
-  <Panel uri='/'>
-    <TitleBlock title='Knock yourself out...' style={{marginTop: 50}} />
-    <SubtitleBlock subtitle='With some links...' style={{marginTop: 25}} />
-    <ActionBlock href='http://UXtemple.com' title='UXtemple' style={actionStyle} />
-    <ActionBlock href='http://usepanels.com' title='use panels' style={actionStyle} />
-
-    <SubtitleBlock subtitle='Or some text and images...' style={{marginTop: 50}} />
-    <TextBlock style={{marginTop: 25}}>Use panels now :).</TextBlock>
-    <ImageBlock src={SHEEP} style={{marginTop: 25}} />
-    <TextBlock style={{marginTop: 25}}> Sheep not included. Unfortunately. :)</TextBlock>
-  </Panel>
-);
-
-let panels = (
-  <Panels>
-    {panel1}
-  </Panels>
-);
-
 React.render(
-  panels,
+  <Panels>
+    <Panel uri='/'>
+      <div>panel 1</div>
+      <div>this is a block</div>
+    </Panel>
+    <Panel uri='/2'>
+      <div>panel 2</div>
+      <div>this is another block</div>
+    </Panel>
+  </Panels>,
   document.getElementById('playground-container')
 );
+
+window.Playground = {
+  PanelsUi: { Panel, Panels }
+};
 
 console.log('Welcome to panels-ui playground.');
 console.log('https://ui.usepanels.com');
