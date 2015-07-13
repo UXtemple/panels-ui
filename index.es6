@@ -1,2 +1,2 @@
-export { default as Panel } from './panel';
-export { default as Panels } from './panels';
+export Panel from './panel';
+export Panels from './panels';

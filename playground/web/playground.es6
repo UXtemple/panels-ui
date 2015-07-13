@@ -1,7 +1,8 @@
 import { Panel, Panels } from '../../index';
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-React.render(
+ReactDOM.render(
   <Panels>
     <Panel uri='/'>
       <div>panel 1</div>

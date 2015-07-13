@@ -5,49 +5,45 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.4.0] - 2015-07-13
+### Changed
+- Using Radium for advanced CSS.
+- Upgraded to `react@0.14.0-beta1`.
+
 ## [0.3.0] - 2015-06-11
 ### Changed
-
 - Moved blocks into its own package `panels-blocks`.
 
 ## [0.2.2] - 2015-06-07
 ### Added
-
 - `.eslintrc` with rules for babel + React through `babel-eslint`, `eslint-plugin-react`.
 
 ### Changed
-
 - `flux` for `panels` props in actions. TODO revisit.
 
 ## [0.2.1] - 2015-06-02
 ### Changed
-
 - Removed ActionWithIcon as we weren't using it.
 - Fixed vendor prefixed styles.
 
 ## [0.2.0] - 2015-06-02
 ### Added
-
 - ActionIcon to create an action with an arrow.
 
 ## [0.1.6] - 2015-05-30
 ### Added
-
 - Vendor prefixes for CSS.
 
 ## [0.1.5] - 2015-05-30
 ### Changed
-
 - Allow actions to tell if they are active by comparing themselves to the `nextUri` on a panels
   router keys' structure.
 
 ## [0.1.4] - 2015-05-24
 ### Changed
-
 - Allow actions to hijack `onClick`.
 
 ## [0.1.0] - 2015-05-08
-
 ### Added
 
 - panels
