@@ -4,11 +4,13 @@ import ReactDOM from 'react-dom';
 
 ReactDOM.render(
   <Panels>
-    <Panel uri='/'>
+    <Panel uri='/' style={{backgroundColor: 'fuchsia'}}>
       <div>panel 1</div>
-      <div>this is a block</div>
+      <div style={{height: 500}}>this is a block</div>
+      <div style={{height: 500}}>this is a block</div>
+      <div style={{height: 500}}>this is a block</div>
     </Panel>
-    <Panel uri='/2'>
+    <Panel uri='/2' style={{backgroundColor: 'yellow'}}>
       <div>panel 2</div>
       <div>this is another block</div>
     </Panel>
@@ -22,4 +24,4 @@ window.Playground = {
 
 console.log('Welcome to panels-ui playground.');
 console.log('https://ui.usepanels.com');
-console.log('Playground module', Playground);
+console.log('Playground module', window.Playground);

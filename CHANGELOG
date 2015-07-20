@@ -5,6 +5,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.5.0] - 2015-07-20
+### Added
+- Pass default width down to Panel.
+- Hide scrollbars altogether.
+
+### Changed
+- Removed Radium as we need to use pseudo styles which it doesn't support and our use of it is very
+  minimal anyway, so we can do without it.
+
 ## [0.4.1] - 2015-07-19
 ### Changed
 - Use Radium from npm as React was removed as a peer dependency.

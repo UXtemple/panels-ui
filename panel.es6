@@ -1,27 +1,36 @@
-import Radium from 'radium';
-import React, { Component, PropTypes } from 'react';
+import DEFAULT_PANEL_WIDTH from './default-panel-width';
+import React, { PropTypes } from 'react';
 
 const style = {
   alignItems: 'flex-start',
+  WebkitAlignItems: 'flex-start',
   height: '100vh',
-  overflowX: 'auto',
-  width: 360,
-  '@media (max-width: 720px)': {
-    maxWidth: 360,
-    width: '100vw'
-  },
-  '@media (max-width: 320px)': {
-    maxWidth: 320
-  }
+  MsOverflowStyle: 'none',
+  overflowX: 'auto'
 };
 
-@Radium
-export default class Panel extends Component {
+export default class Panel {
   render() {
-    return <div style={[style, this.props.style]}>{this.props.children}</div>;
+    const { children, width } = this.props;
+    const panelStyle = {
+      ...style,
+      width,
+      ...this.props.style
+    };
+
+    return <div className='Panel' style={panelStyle}>{children}</div>;
+  }
+
+  static defaultProps = {
+    style: {},
+    width: DEFAULT_PANEL_WIDTH
   }
 
   static propTypes = {
-    style: PropTypes.object
+    style: PropTypes.object,
+    width: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string
+    ])
   }
 }
