@@ -5,6 +5,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.5.1] - 2015-07-25
+### Added
+- Made `Panels` adapt to orientation changes and browser resizing.
+- `width` is a prop of `Panel` now.
+- Set a sensible default width (360px) that depends on the viewport.
+
+### Changed
+- Extracted the panel's width outside of the its styles.
+
 ## [0.5.0] - 2015-07-20
 ### Added
 - Pass default width down to Panel.

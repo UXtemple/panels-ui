@@ -14,8 +14,8 @@ export default class Panel {
     const { children, width } = this.props;
     const panelStyle = {
       ...style,
-      width,
-      ...this.props.style
+      ...this.props.style,
+      width
     };
 
     return <div className='Panel' style={panelStyle}>{children}</div>;

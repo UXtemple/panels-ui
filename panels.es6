@@ -1,3 +1,4 @@
+import canUseDOM from 'can-use-dom';
 import debounce from 'lodash.debounce';
 import getPanelWidth from './get-panel-width';
 import React, { Children, cloneElement, Component } from 'react';
@@ -26,13 +27,17 @@ export default class Panels extends Component {
   componentWillMount() {
     this.updatePanelWidth = debounce(() =>
       this.setState({width: getPanelWidth()}), UPDATE_PANEL_WIDTH_INTERVAL);
-    window.addEventListener('resize', this.updatePanelWidth, false);
-    window.addEventListener('orientationchange', this.updatePanelWidth, false);
+    if (canUseDOM) {
+      window.addEventListener('resize', this.updatePanelWidth, false);
+      window.addEventListener('orientationchange', this.updatePanelWidth, false);
+    }
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.updatePanelWidth);
-    window.removeEventListener('orientationchange', this.updatePanelWidth);
+    if (canUseDOM) {
+      window.removeEventListener('resize', this.updatePanelWidth);
+      window.removeEventListener('orientationchange', this.updatePanelWidth);
+    }
   }
 
   render() {
