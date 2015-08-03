@@ -7,7 +7,6 @@ const hideScrollbars = <style>{'.Panel::-webkit-scrollbar { width: 0 !important;
 
 const style = {
   flexDirection: 'row',
-  WebkitFlexDirection: 'row',
   height: '100vh',
   minWidth: '100vw',
   overflowY: 'hidden'

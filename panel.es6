@@ -1,9 +1,8 @@
 import DEFAULT_PANEL_WIDTH from './default-panel-width';
 import React, { PropTypes } from 'react';
 
-const style = {
+const baseStyle = {
   alignItems: 'flex-start',
-  WebkitAlignItems: 'flex-start',
   height: '100vh',
   MsOverflowStyle: 'none',
   overflowX: 'auto'
@@ -11,10 +10,10 @@ const style = {
 
 export default class Panel {
   render() {
-    const { children, width } = this.props;
+    const { children, style, width } = this.props;
     const panelStyle = {
+      ...baseStyle,
       ...style,
-      ...this.props.style,
       width
     };
 
@@ -31,6 +30,6 @@ export default class Panel {
     width: PropTypes.oneOfType([
       PropTypes.number,
       PropTypes.string
-    ])
+    ]).isRequired
   }
 }
