@@ -1,17 +1,8 @@
 import DEFAULT_PANEL_WIDTH from './default-panel-width';
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
+import widthShape from './width-shape';
 
-const baseStyle = {
-  msFlexAlign: 'center',
-  WebkitBoxAlign: 'center',
-  WebkitAlignItems: 'center',
-  alignItems: 'center',
-  height: '100vh',
-  msOverflowStyle: 'none',
-  overflowX: 'auto'
-};
-
-export default class Panel {
+export default class Panel extends Component {
   render() {
     const { children, style, width } = this.props;
     const panelStyle = {
@@ -30,9 +21,16 @@ export default class Panel {
 
   static propTypes = {
     style: PropTypes.object,
-    width: PropTypes.oneOfType([
-      PropTypes.number,
-      PropTypes.string
-    ]).isRequired
+    width: widthShape.isRequired
   }
 }
+
+const baseStyle = {
+  msFlexAlign: 'center',
+  WebkitBoxAlign: 'center',
+  WebkitAlignItems: 'center',
+  alignItems: 'center',
+  height: '100vh',
+  msOverflowStyle: 'none',
+  overflowX: 'auto'
+};

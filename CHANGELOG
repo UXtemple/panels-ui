@@ -5,6 +5,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.6.0] - 2015-09-17
+### Added
+- Action component.
+
+### Changed
+- Compatibility with the new runtime.
+
 ## [0.5.1] - 2015-07-25
 ### Added
 - Made `Panels` adapt to orientation changes and browser resizing.
