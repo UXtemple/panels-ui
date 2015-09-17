@@ -6,6 +6,10 @@ import React, { Children, cloneElement, Component } from 'react';
 const hideScrollbars = <style>{'.Panel::-webkit-scrollbar { width: 0 !important; }'}</style>;
 
 const style = {
+  msFlexDirection: 'row',
+  WebkitBoxOrient: 'horizontal',
+  WebkitBoxDirection: 'normal',
+  WebkitFlexDirection: 'row',
   flexDirection: 'row',
   height: '100vh',
   minWidth: '100vw',
@@ -24,8 +28,8 @@ export default class Panels extends Component {
   }
 
   componentWillMount() {
-    this.updatePanelWidth = debounce(() =>
-      this.setState({width: getPanelWidth()}), UPDATE_PANEL_WIDTH_INTERVAL);
+    this.updatePanelWidth = debounce(() => this.setState({width: getPanelWidth()}), UPDATE_PANEL_WIDTH_INTERVAL);
+
     if (canUseDOM) {
       window.addEventListener('resize', this.updatePanelWidth, false);
       window.addEventListener('orientationchange', this.updatePanelWidth, false);

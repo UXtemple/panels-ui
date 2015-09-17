@@ -2,9 +2,12 @@ import DEFAULT_PANEL_WIDTH from './default-panel-width';
 import React, { PropTypes } from 'react';
 
 const baseStyle = {
-  alignItems: 'flex-start',
+  msFlexAlign: 'center',
+  WebkitBoxAlign: 'center',
+  WebkitAlignItems: 'center',
+  alignItems: 'center',
   height: '100vh',
-  MsOverflowStyle: 'none',
+  msOverflowStyle: 'none',
   overflowX: 'auto'
 };
 

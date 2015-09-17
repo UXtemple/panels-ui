@@ -1,7 +1,4 @@
 {
   "loose": "all",
-  "plugins": [
-    "react-autoprefix"
-  ],
   "stage": 0
 }
