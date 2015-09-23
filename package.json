@@ -1,6 +1,6 @@
 {
   "name": "panels-ui",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Main panels UI components",
   "main": "index.js",
   "scripts": {
