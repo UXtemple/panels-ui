@@ -26,11 +26,8 @@ export default class Panel extends Component {
 }
 
 const baseStyle = {
-  msFlexAlign: 'center',
-  WebkitBoxAlign: 'center',
-  WebkitAlignItems: 'center',
-  alignItems: 'center',
   height: '100vh',
   msOverflowStyle: 'none',
-  overflowX: 'auto'
+  overflowX: 'hidden',
+  overflowY: 'auto'
 };
