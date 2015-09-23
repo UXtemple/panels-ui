@@ -22,10 +22,14 @@ export default class Action extends Component {
     }
   }
 
+  onMouseEnter() { this.setState({hover: true}) }
+  onMouseLeave() { this.setState({hover: false}) }
+
   render() {
     const { activeStyle, children, hoverStyle, href, style, title } = this.props;
     const { hover } = this.state;
     const active = this.context.isActive(href);
+    const finalHref = `${this.context.route.context}${href}`;
 
     let finalStyle = {
       WebkitBoxOrient: 'horizontal',
@@ -55,12 +59,23 @@ export default class Action extends Component {
       (isFunction(children) ? children(active, hover) : children) :
       title;
 
-    return <a href={href} title={title} style={finalStyle} onClick={::this.onClick}>{content}</a>;
+    return (
+      <a href={finalHref} title={title} style={finalStyle} onClick={::this.onClick}
+        onMouseEnter={::this.onMouseEnter} onMouseLeave={::this.onMouseLeave}>
+        {content}
+      </a>
+    );
   }
 
   static contextTypes = {
     isActive: PropTypes.func.isRequired,
-    navigate: PropTypes.func.isRequired
+    navigate: PropTypes.func.isRequired,
+    route: PropTypes.shape({
+      app: PropTypes.string.isRequired,
+      context: PropTypes.string.isRequired,
+      path: PropTypes.string.isRequired,
+      uri: PropTypes.string.isRequired
+    }).isRequired
   }
 
   static defaultProps = {
