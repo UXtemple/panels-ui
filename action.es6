@@ -73,8 +73,7 @@ export default class Action extends Component {
     route: PropTypes.shape({
       app: PropTypes.string.isRequired,
       context: PropTypes.string.isRequired,
-      path: PropTypes.string.isRequired,
-      uri: PropTypes.string.isRequired
+      path: PropTypes.string.isRequired
     }).isRequired
   }
 
