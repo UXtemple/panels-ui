@@ -1,3 +1,0 @@
-describe('Panels', () => {
-  xit('TODO');
-});

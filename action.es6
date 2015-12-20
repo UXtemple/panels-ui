@@ -26,9 +26,9 @@ export default class Action extends Component {
   onMouseLeave() { this.setState({hover: false}) }
 
   render() {
-    const { activeStyle, children, hoverStyle, href, style, title } = this.props;
+    const { activeStyle, children, hoverStyle, href, loose, style, title } = this.props;
     const { hover } = this.state;
-    const active = this.context.isActive(href);
+    const active = this.context.isActive(href, loose);
     const finalHref = `${this.context.route.context}${href}`;
 
     let finalStyle = {
@@ -66,29 +66,28 @@ export default class Action extends Component {
       </a>
     );
   }
-
-  static contextTypes = {
-    isActive: PropTypes.func.isRequired,
-    navigate: PropTypes.func.isRequired,
-    route: PropTypes.shape({
-      app: PropTypes.string.isRequired,
-      context: PropTypes.string.isRequired,
-      path: PropTypes.string.isRequired
-    }).isRequired
-  }
-
-  static defaultProps = {
-    activeStyle: {},
-    hoverStyle: {},
-    style: {}
-  }
-
-  static propTypes = {
-    activeStyle: PropTypes.object,
-    hoverStyle: PropTypes.object,
-    href: PropTypes.string.isRequired,
-    onClick: PropTypes.func,
-    style: PropTypes.object,
-    title: PropTypes.string
-  }
 }
+Action.contextTypes = {
+  isActive: PropTypes.func.isRequired,
+  navigate: PropTypes.func.isRequired,
+  route: PropTypes.shape({
+    app: PropTypes.string.isRequired,
+    context: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired
+  }).isRequired
+};
+
+Action.defaultProps = {
+  activeStyle: {},
+  hoverStyle: {},
+  style: {}
+};
+
+Action.propTypes = {
+  activeStyle: PropTypes.object,
+  hoverStyle: PropTypes.object,
+  href: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  style: PropTypes.object,
+  title: PropTypes.string
+};

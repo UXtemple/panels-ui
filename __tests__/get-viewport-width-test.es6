@@ -1,3 +1,0 @@
-describe('getViewportWidth', () => {
-  xit('TODO');
-});

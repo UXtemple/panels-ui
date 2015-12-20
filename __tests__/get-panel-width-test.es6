@@ -1,3 +1,0 @@
-describe('getPanelWidth', () => {
-  xit('TODO');
-});

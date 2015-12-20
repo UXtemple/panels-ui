@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-where=$1 || .
-tests=$1
-if [ -d $where ]; then
-  tests=`find $where -type f -name '*-test.*' -not -path './node_modules/*'`
-fi
+BIN=./node_modules/.bin
 
-./node_modules/.bin/mocha $2 --compilers js:babel/register $tests
+TESTS=${1:-**/__tests__/*-test.es6}
+$BIN/babel-node $BIN/tape "$TESTS" | $BIN/faucet
