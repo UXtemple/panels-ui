@@ -1,3 +1,4 @@
+import normalizeUri from 'panels-normalize-uri';
 import React, { Component, PropTypes } from 'react';
 
 function isFunction(fn) {
@@ -29,7 +30,7 @@ export default class Action extends Component {
     const { activeStyle, children, hoverStyle, href, loose, style, title } = this.props;
     const { hover } = this.state;
     const active = this.context.isActive(href, loose);
-    const finalHref = `${this.context.route.context}${href}`;
+    const finalHref = normalizeUri(`${this.context.route.context}${href}`);
 
     let finalStyle = {
       WebkitBoxOrient: 'horizontal',
