@@ -1,3 +1,21 @@
 {
-  "presets": ["react", "stage-0", "es2015"]
+  "presets": ["react"],
+  "plugins": [
+    "transform-export-extensions"
+  ],
+  "env": {
+    "cjs": {
+      "plugins": [
+        "external-helpers",
+        "transform-es2015-destructuring",
+        "transform-es2015-parameters",
+        "transform-object-rest-spread"
+      ]
+    },
+    "es": {
+      "plugins": [
+        ["transform-object-rest-spread", {"polyfill": false}]
+      ]
+    }
+  }
 }
