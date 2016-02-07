@@ -5,8 +5,9 @@
   "main": "dist/cjs.js",
   "scripts": {
     "bundle": "BABEL_ENV=cjs rollup -c .rollup/cjs.js && BABEL_ENV=es rollup -c .rollup/next.js",
-    "clean": ".bin/clean",
-    "push": ".bin/push",
+    "prepublish": "npm run bundle",
+    "postpublish": "rm -rf dist && git checkout package.json && git push --tags",
+    "push": "git tag $(npm version $VERSION) && npm publish",
     "test": ".bin/test"
   },
   "repository": {

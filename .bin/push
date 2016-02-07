@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-git pull &&
-git push &&
-npm run build &&
-npm publish &&
-git push --follow-tags &&
-npm run clean
