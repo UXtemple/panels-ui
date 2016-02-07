@@ -6,9 +6,9 @@ import uniqueId from 'mini-unique-id';
 export default class Teleport extends Component {
   render() {
     const { context, props } = this;
-    const active = context.isActive(props.href, props.loose);
+    const active = context.isActive(props.to, props.loose);
     const className = `Teleport-${uniqueId()}`;
-    const href = normaliseUri(`${context.route.context}${props.href}`);
+    const href = normaliseUri(`${context.route.context}${props.to}`);
 
     const inlineStyle = props.styleHover ? `.${className}:hover {${toCSS(props.styleHover)}}` : '';
     const style = active ? {
@@ -18,7 +18,7 @@ export default class Teleport extends Component {
 
     function onClick(event) {
       event.preventDefault();
-      context.navigate(props.href);
+      context.navigate(props.to);
 
       if (typeof props.onClick === 'function') {
         props.onClick();
@@ -26,7 +26,7 @@ export default class Teleport extends Component {
     }
 
     return (
-      <a className={className} href={href} title={props.title} style={style} onClick={onClick}>
+      <a className={className} href={href} onClick={onClick} style={style} title={props.title}>
         {props.children}
         <style>
           {inlineStyle}
@@ -48,7 +48,7 @@ Teleport.contextTypes = {
 Teleport.propTypes = {
   styleActive: PropTypes.object,
   styleHover: PropTypes.object,
-  href: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   style: PropTypes.object,
   title: PropTypes.string
