@@ -48,7 +48,7 @@
     "rollup-plugin-npm": "^1.4.0"
   },
   "peerDependencies": {
-    "react": "^0.14.2",
+    "react": "^15.0.0",
     "mini-unique-id": "^1.0.0",
     "panels-normalise-uri": "^1.0.0",
     "style-to-css": "^1.0.1"
