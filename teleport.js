@@ -5,10 +5,10 @@ import uniqueId from 'mini-unique-id';
 
 export default class Teleport extends Component {
   render() {
-    const { context, props } = this;
-    const active = context.isActive(props.to, props.loose);
+    const { props } = this;
+    const active = this.context.isActive(props.to, props.loose);
     const className = `Teleport-${uniqueId()}`;
-    const href = normaliseUri(`${context.route.context}${props.to}`);
+    const href = normaliseUri(`${this.context.route.context}${props.to}`);
 
     const inlineStyle = props.styleHover ? `.${className}:hover {${toCSS(props.styleHover)}}` : '';
     const style = active ? {
@@ -16,9 +16,10 @@ export default class Teleport extends Component {
       ...props.styleActive
     } : props.style;
 
+    const { navigate } = this.context;
     function onClick(event) {
       event.preventDefault();
-      context.navigate(props.to);
+      navigate(props.to);
 
       if (typeof props.onClick === 'function') {
         props.onClick();
