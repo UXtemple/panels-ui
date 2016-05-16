@@ -19,10 +19,14 @@ export default class Teleport extends Component {
     const { navigate } = this.context;
     function onClick(event) {
       event.preventDefault();
-      navigate(props.to, props.focus, props.context);
+      let preventNavigate = false;
 
       if (typeof props.onClick === 'function') {
-        props.onClick();
+        preventNavigate = props.onClick(event);
+      }
+
+      if (!preventNavigate) {
+        navigate(props.to, props.focus, props.context);
       }
     }
 
