@@ -4,35 +4,40 @@ import toCSS from 'style-to-css';
 import uniqueId from 'mini-unique-id';
 
 export default class Teleport extends Component {
+  constructor(props) {
+    super(props);
+    this.id = uniqueId();
+  }
+
   render() {
-    const { props } = this;
-    const active = this.context.isActive(props.to, props.loose);
-    const className = `Teleport-${uniqueId()}`;
-    const href = normaliseUri(`${this.context.route.context}${props.to}`);
+    const { context, children, focus, loose, onClick, style, styleActive, styleHover, title, to, ...rest } = this.props;
+    const { isActive, navigate, route } = this.context;
+    const active = isActive(to, loose);
+    const className = `Teleport-${this.id}`;
+    const href = normaliseUri(`${route.context}${to}`);
 
-    const inlineStyle = props.styleHover ? `.${className}:hover {${toCSS(props.styleHover)}}` : '';
-    const style = active ? {
-      ...props.style,
-      ...props.styleActive
-    } : props.style;
+    const inlineStyle = styleHover ? `.${className}:hover {${toCSS(styleHover)}}` : '';
+    const finalStyle = active ? {
+      ...style,
+      ...styleActive
+    } : style;
 
-    const { navigate } = this.context;
-    function onClick(event) {
+    function finalOnClick(event) {
       event.preventDefault();
       let preventNavigate = false;
 
-      if (typeof props.onClick === 'function') {
-        preventNavigate = props.onClick(event);
+      if (typeof onClick === 'function') {
+        preventNavigate = onClick(event);
       }
 
       if (preventNavigate !== true) {
-        navigate(props.to, props.focus, props.context);
+        navigate(to, focus, context);
       }
     }
 
     return (
-      <a className={className} href={href} onClick={onClick} style={style} title={props.title}>
-        {props.children}
+      <a {...rest} className={className} href={href} onClick={finalOnClick} style={finalStyle} title={title}>
+        {children}
         <style>
           {inlineStyle}
         </style>
