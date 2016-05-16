@@ -25,7 +25,7 @@ export default class Teleport extends Component {
         preventNavigate = props.onClick(event);
       }
 
-      if (!preventNavigate) {
+      if (preventNavigate !== true) {
         navigate(props.to, props.focus, props.context);
       }
     }
