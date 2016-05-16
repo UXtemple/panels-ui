@@ -1,12 +1,11 @@
 {
   "name": "panels-ui",
   "description": "Main panels UI components",
-  "jsnext:main": "dist/next.js",
-  "main": "dist/cjs.js",
+  "main": "cjs.js",
   "scripts": {
-    "bundle": "BABEL_ENV=cjs rollup -c .rollup/cjs.js && BABEL_ENV=es rollup -c .rollup/next.js",
+    "bundle": "rollup -c rollup.config.js",
     "prepublish": "npm run bundle",
-    "postpublish": "rm -rf dist && git checkout package.json && git push --tags",
+    "postpublish": "rm cjs.js && git checkout package.json && git push --tags",
     "push": "git tag $(npm version $VERSION) && npm publish",
     "test": ".bin/test"
   },
@@ -31,21 +30,10 @@
   },
   "homepage": "https://github.com/UXtemple/panels-ui",
   "devDependencies": {
-    "babel": "^6.3.26",
-    "babel-cli": "^6.4.5",
-    "babel-plugin-external-helpers": "^6.4.0",
-    "babel-plugin-transform-es2015-arrow-functions": "^6.4.0",
-    "babel-plugin-transform-es2015-block-scoping": "^6.4.0",
-    "babel-plugin-transform-es2015-classes": "^6.4.5",
-    "babel-plugin-transform-es2015-destructuring": "6.4.0",
-    "babel-plugin-transform-es2015-parameters": "6.4.5",
-    "babel-plugin-transform-es2015-template-literals": "^6.3.13",
-    "babel-plugin-transform-export-extensions": "^6.4.0",
-    "babel-plugin-transform-object-rest-spread": "^6.3.13",
-    "babel-preset-react": "^6.3.13",
-    "rollup": "^0.25.2",
-    "rollup-plugin-babel": "^2.3.9",
-    "rollup-plugin-npm": "^1.4.0"
+    "babel-plugin-external-helpers": "^6.8.0",
+    "babel-preset-es-uxtemple": "^1.0.1",
+    "rollup": "^0.26.3",
+    "rollup-plugin-babel": "^2.3.9"
   },
   "peerDependencies": {
     "react": "^15.0.0",

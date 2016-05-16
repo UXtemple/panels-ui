@@ -1,7 +1,7 @@
 import babel from 'rollup-plugin-babel';
 
 export default {
-  dest: 'dist/cjs.js',
+  dest: 'cjs.js',
   entry: 'index.js',
   format: 'cjs',
   sourceMap: true,

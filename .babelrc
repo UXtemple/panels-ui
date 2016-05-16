@@ -1,24 +1,4 @@
 {
-  "presets": ["react"],
-  "plugins": [
-    "transform-export-extensions"
-  ],
-  "env": {
-    "cjs": {
-      "plugins": [
-        "external-helpers",
-        "transform-es2015-arrow-functions",
-        "transform-es2015-block-scoping",
-        "transform-es2015-classes",
-        "transform-es2015-destructuring",
-        "transform-es2015-template-literals",
-        "transform-object-rest-spread"
-      ]
-    },
-    "es": {
-      "plugins": [
-        ["transform-object-rest-spread", {"polyfill": false}]
-      ]
-    }
-  }
+  "plugins": ["external-helpers"],
+  "presets": ["es-uxtemple"]
 }
