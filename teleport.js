@@ -7,13 +7,13 @@ import uniqueId from 'mini-unique-id';
 export default class Teleport extends Component {
   constructor(props) {
     super(props);
-    this.id = uniqueId();
+    this.className = `Teleport-${uniqueId()}`;
   }
 
   render() {
+    const { className } = this;
     const { context, children, focus, loose, onClick, style, styleActive, styleHover, title, to, ...rest } = this.props;
     const active = this.context.isActive(to, loose);
-    const className = `Teleport-${this.id}`;
     const href = normaliseUri(`${this.context.route.context}${to}`);
 
     const inlineStyle = styleHover ? `.${className}:hover {${toCSS(styleHover)}}` : '';

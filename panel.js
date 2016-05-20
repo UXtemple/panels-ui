@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Panel = props => (
-  <div className='panel' style={{...style, ...props.style}}>
-    {props.children}
+const Panel = ({ children, style, ...props }) => (
+  <div {...props} className='panel' style={{ overflowY: 'auto', ...style }}>
+    {children}
   </div>
 );
 export default Panel;
