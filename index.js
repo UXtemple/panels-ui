@@ -1,3 +1,4 @@
+export { snapX, snapY } from './snap';
 export ArrowLeft from './arrow-left';
 export ArrowRight from './arrow-right';
 export Expand from './expand';
