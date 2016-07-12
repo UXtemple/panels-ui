@@ -3,7 +3,6 @@ import React, { Component, PropTypes } from 'react';
 import toCSS from 'style-to-css';
 import uniqueId from 'mini-unique-id';
 
-// NOTE Don't destruct this.context.
 export default class Teleport extends Component {
   constructor(props) {
     super(props);
@@ -13,8 +12,9 @@ export default class Teleport extends Component {
   render() {
     const { className } = this;
     const { context, children, focus, loose, onClick, style, styleActive, styleHover, title, to, ...rest } = this.props;
-    const active = this.context.isActive(to, loose);
-    const href = normaliseUri(`${this.context.route.context}${to}`);
+    const { isActive, navigate, route } = this.context;
+    const active = isActive(to, loose);
+    const href = normaliseUri(`${route.context}${to}`);
 
     const inlineStyle = styleHover ? `.${className}:hover {${toCSS(styleHover)}}` : '';
     const finalStyle = active ? {
@@ -31,7 +31,7 @@ export default class Teleport extends Component {
       }
 
       if (preventNavigate !== true) {
-        this.context.navigate(to, focus, context);
+        navigate(to, focus, context);
       }
     }
 
@@ -49,9 +49,7 @@ Teleport.contextTypes = {
   isActive: PropTypes.func.isRequired,
   navigate: PropTypes.func.isRequired,
   route: PropTypes.shape({
-    app: PropTypes.string.isRequired,
-    context: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired
+    context: PropTypes.string.isRequired
   }).isRequired
 };
 

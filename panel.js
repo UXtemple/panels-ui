@@ -1,22 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
-class Panel extends Component {
+export default class Panel extends Component {
   render() {
     const { children, style, ...props } = this.props;
 
     return (
-      <div {...props}
-        ref={ $e => this.$e = $e }
-        className='panel'
-        style={{ overflowY: 'auto', ...style }}
+      <div
+        {...props}
+        ref={$e => this.$e = $e}
+        style={{
+          height: '100%',
+          overflowY: 'auto',
+          ...style
+        }}
       >
         {children}
       </div>
     );
   }
 }
-export default Panel;
-
-const style = {
-  overflowY: 'auto'
-};

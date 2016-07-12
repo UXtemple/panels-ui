@@ -4,17 +4,17 @@ import React, { PropTypes } from 'react';
 
 const DIAMETER = 40;
 
-const Expand = ({style}, {panel, toggleExpand}) => (
+const Expand = ({style}, { route, toggleExpand }) => (
   <div style={style} onClick={toggleExpand}>
-    {panel.isExpanded ? <ArrowLeft /> : <ArrowRight />}
+    {route.isExpanded ? <ArrowLeft /> : <ArrowRight />}
   </div>
 );
 
 Expand.contextTypes = {
-  panel: PropTypes.shape({
+  route: PropTypes.shape({
     isExpanded: PropTypes.bool
   }).isRequired,
-  toggleExpand: PropTypes.func
+  toggleExpand: PropTypes.func.isRequired
 };
 
 Expand.defaultProps = {
