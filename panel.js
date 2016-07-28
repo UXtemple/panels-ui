@@ -2,20 +2,23 @@ import React, { Component, PropTypes } from 'react';
 
 export default class Panel extends Component {
   render() {
-    const { children, style, ...props } = this.props;
+    const { props } = this;
 
     return (
       <div
-        {...props}
-        ref={$e => this.$e = $e}
+        ref={props._ref}
         style={{
           height: '100%',
           overflowY: 'auto',
-          ...style
+          ...props.style
         }}
       >
-        {children}
+        {props.children}
       </div>
     );
   }
 }
+Panel.propTypes = {
+  _ref: PropTypes.func,
+  style: PropTypes.object
+};

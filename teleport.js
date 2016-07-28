@@ -4,23 +4,23 @@ import toCSS from 'style-to-css';
 import uniqueId from 'mini-unique-id';
 
 export default class Teleport extends Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
     this.className = `Teleport-${uniqueId()}`;
   }
 
   render() {
     const { className } = this;
-    const { context, children, focus, loose, onClick, style, styleActive, styleHover, title, to, ...rest } = this.props;
+    const {
+      context, children, focus, loose, onClick, _ref, style, styleActive, styleHover, title, to,
+      ...rest
+    } = this.props;
     const { isActive, navigate, route } = this.context;
     const active = isActive(to, loose);
     const href = normaliseUri(`${route.context}${to}`);
 
     const inlineStyle = styleHover ? `.${className}:hover {${toCSS(styleHover)}}` : '';
-    const finalStyle = active ? {
-      ...style,
-      ...styleActive
-    } : style;
+    const finalStyle = active ? { ...style, ...styleActive } : style;
 
     const finalOnClick = event => {
       event.preventDefault();
@@ -35,12 +35,21 @@ export default class Teleport extends Component {
       }
     }
 
+    if (_ref) {
+      rest.ref = _ref;
+    }
+
     return (
-      <a {...rest} className={className} href={href} onClick={finalOnClick} style={finalStyle} title={title}>
+      <a
+        {...rest}
+        className={className}
+        href={href}
+        onClick={finalOnClick}
+        style={finalStyle}
+        title={title}
+      >
         {children}
-        <style>
-          {inlineStyle}
-        </style>
+        <style>{inlineStyle}</style>
       </a>
     );
   }
@@ -54,6 +63,7 @@ Teleport.contextTypes = {
 };
 
 Teleport.propTypes = {
+  _ref: PropTypes.func,
   styleActive: PropTypes.object,
   styleHover: PropTypes.object,
   to: PropTypes.string.isRequired,

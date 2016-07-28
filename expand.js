@@ -4,7 +4,7 @@ import React, { PropTypes } from 'react';
 
 const DIAMETER = 40;
 
-const Expand = ({style}, { route, toggleExpand }) => (
+const Expand = ({ style }, { route, toggleExpand }) => (
   <div style={style} onClick={toggleExpand}>
     {route.isExpanded ? <ArrowLeft /> : <ArrowRight />}
   </div>
