@@ -12,11 +12,17 @@ class Wrapper extends Component {
   }
 
   getChildContext() {
-    const { isActive, navigate, route, routeIndex, router, toggleExpand, updateSettings } = this.state;
+    const {
+      isActive, isContext, isFocus, navigate, panel, route, routeIndex, router, toggleExpand,
+      updateSettings
+    } = this.state;
 
     return {
       isActive,
+      isContext,
+      isFocus,
       navigate,
+      panel,
       route,
       routeIndex,
       router,
@@ -44,7 +50,10 @@ const routeShape = PropTypes.shape({
 });
 Wrapper.childContextTypes = {
   isActive: PropTypes.func.isRequired,
+  isContext: PropTypes.bool,
+  isFocus: PropTypes.bool,
   navigate: PropTypes.func.isRequired,
+  panel: PropTypes.object.isRequired,
   route: routeShape.isRequired,
   routeIndex: PropTypes.number.isRequired,
   router: PropTypes.shape({
