@@ -33,11 +33,13 @@ class Wrapper extends Component {
 
   render() {
     const WrappedComponent = this.props.component;
-    return <WrappedComponent {...this.state.panel.props} panels={this.state} />;
+    debugger;
+    return <WrappedComponent {...this.state.panel.props} mountedRef={this.props.mountedRef} panels={this.state} />;
   }
 }
 Wrapper.propTypes = {
   onChange: PropTypes.func.isRequired,
+  mountedRef: PropTypes.object.isRequired,
   state: PropTypes.object.isRequired
 };
 const routeShape = PropTypes.shape({
@@ -68,7 +70,7 @@ Wrapper.childContextTypes = {
 };
 
 const wrap = WrappedComponent => ($el, props, onChange) => {
-  render(<Wrapper component={WrappedComponent} onChange={onChange} state={props} />, $el);
+  render(<Wrapper component={WrappedComponent} onChange={onChange} mountedRef={$el} state={props} />, $el);
   return () => unmountComponentAtNode($el);
 };
 export default wrap;
