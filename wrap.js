@@ -33,7 +33,6 @@ class Wrapper extends Component {
 
   render() {
     const WrappedComponent = this.props.component;
-    debugger;
     return <WrappedComponent {...this.state.panel.props} mountedRef={this.props.mountedRef} panels={this.state} />;
   }
 }
