@@ -38,7 +38,7 @@ class Wrapper extends Component {
 }
 Wrapper.propTypes = {
   onChange: PropTypes.func.isRequired,
-  mountedRef: PropTypes.object.isRequired,
+  mountedRef: PropTypes.any.isRequired,
   state: PropTypes.object.isRequired
 };
 const routeShape = PropTypes.shape({
